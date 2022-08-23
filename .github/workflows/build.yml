@@ -1,0 +1,44 @@
+name: Build Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      uses: VaultVulp/action-pipenv@v2.0.1
+      with:
+        command: install
+
+    - name: Build docs
+      uses: VaultVulp/action-pipenv@v2.0.1
+      with:
+        command: run build
+
+    - name: Commit documentation changes
+      run: |
+        git clone ${{ github.head_ref }} --branch gh-pages --single-branch gh-pages
+        cp -r _build/html/* gh-pages/
+        cd gh-pages
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update documentation" -a || true
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: gh-pages
+        directory: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
