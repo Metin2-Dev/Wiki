@@ -55,9 +55,9 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 html_context = {
     'display_github': True,
-    'github_user': 'RewardMetin2',
+    'github_user': 'Metin2-Dev',
     'github_repo': 'Wiki',
-    'github_version': 'master/docs/',
+    'github_version': 'main/docs/',
 }
 
 html_logo = "_static/img/logos/128_icon.png"
@@ -99,5 +99,5 @@ pygments_style = "vs"
 surpress_warnings = ['autosectionlabel.*']
 
 # Edit on GitHub configuration
-# edit_on_github_project = 'username/reponame'
-# edit_on_github_branch = 'master'
+edit_on_github_project = 'Metin2-Dev/Wiki'
+edit_on_github_branch = 'main'

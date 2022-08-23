@@ -1,7 +1,7 @@
 Welcome to the Metin2Dev Wiki
 ==============================
 
-If you are new here you might not notice but if you are not
+If you are new here you might not notice, but if you are not
 you will notice that the wiki is completely different
 
 If you want to keep in pair with the changes in real time
@@ -27,3 +27,11 @@ Any news or progress will be announced here, on the
     :align: center
     :alt: Metin2Dev Team
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Wiki
+   :name: root-toc-wiki
+   :hidden:
+
+   pages/Maintenance/index
